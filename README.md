@@ -1,9 +1,9 @@
-# unicode
+# unicode-rs
 
 [![crates.io](https://img.shields.io/crates/v/unicode.svg)](https://crates.io/crates/unicode)
 [![docs.rs](https://docs.rs/unicode/badge.svg)](https://docs.rs/unicode)
 
-**unicode** is a Rust library for working with Unicode.
+**unicode-rs** is a Rust library for working with Unicode.
 
 ## License
 

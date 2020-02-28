@@ -8,6 +8,6 @@ license = "MIT OR Apache-2.0"
 repository = "https://github.com/printfn/unicode-rs"
 readme = "README.md"
 keywords = ["text", "unicode"]
-categories = ["no-standard-library", "text-processing", "internationalization"]
+categories = ["no-std", "text-processing", "internationalization"]
 
 [dependencies]

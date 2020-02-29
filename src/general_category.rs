@@ -1,3 +1,4 @@
+use crate::codepoint_type::CodepointType;
 use core::str::FromStr;
 
 /// Values for the General_Category (gc) character property.
@@ -138,6 +139,39 @@ impl GeneralCategory {
             GeneralCategory::Cs => "Other, surrogate",
             GeneralCategory::Co => "Other, private use",
             GeneralCategory::Cn => "Other, not assigned",
+        }
+    }
+
+    pub fn codepoint_type(&self, codepoint: u32) -> CodepointType {
+        match self {
+            GeneralCategory::Cc => CodepointType::Control,
+            GeneralCategory::Co => CodepointType::PrivateUse,
+            GeneralCategory::Cs => CodepointType::Surrogate,
+            GeneralCategory::Cf | GeneralCategory::Zl | GeneralCategory::Zp => {
+                CodepointType::Format
+            }
+            GeneralCategory::Cn => match codepoint {
+                0x00fdd0..=0x00fdef => CodepointType::Noncharacter,
+                0x00fffe..=0x00ffff => CodepointType::Noncharacter,
+                0x01fffe..=0x01ffff => CodepointType::Noncharacter,
+                0x02fffe..=0x02ffff => CodepointType::Noncharacter,
+                0x03fffe..=0x03ffff => CodepointType::Noncharacter,
+                0x04fffe..=0x04ffff => CodepointType::Noncharacter,
+                0x05fffe..=0x05ffff => CodepointType::Noncharacter,
+                0x06fffe..=0x06ffff => CodepointType::Noncharacter,
+                0x07fffe..=0x07ffff => CodepointType::Noncharacter,
+                0x08fffe..=0x08ffff => CodepointType::Noncharacter,
+                0x09fffe..=0x09ffff => CodepointType::Noncharacter,
+                0x0afffe..=0x0affff => CodepointType::Noncharacter,
+                0x0bfffe..=0x0bffff => CodepointType::Noncharacter,
+                0x0cfffe..=0x0cffff => CodepointType::Noncharacter,
+                0x0dfffe..=0x0dffff => CodepointType::Noncharacter,
+                0x0efffe..=0x0effff => CodepointType::Noncharacter,
+                0x0ffffe..=0x0fffff => CodepointType::Noncharacter,
+                0x10fffe..=0x10ffff => CodepointType::Noncharacter,
+                _ => CodepointType::Reserved,
+            },
+            _ => CodepointType::Graphic,
         }
     }
 }

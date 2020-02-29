@@ -3,4 +3,6 @@
 #![forbid(dead_code)]
 #![doc(html_root_url = "https://docs.rs/unicode/0.1.0")]
 
+pub(crate) mod codepoint;
+pub mod codepoint_type;
 pub mod general_category;

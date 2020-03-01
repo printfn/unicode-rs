@@ -6,30 +6,30 @@ pub trait Codepoint: Copy {
 
     fn general_category_unstable(self) -> Option<GeneralCategory> {
         Some(match self.value() {
-            0x000000..=0x00001f => GeneralCategory::Cc,
-            0x00007f..=0x00009f => GeneralCategory::Cc,
-            0x00d800..=0x00dfff => GeneralCategory::Cs,
-            0x00e000..=0x00f8ff => GeneralCategory::Co,
-            0x00fdd0..=0x00fdef => GeneralCategory::Cn,
-            0x00fffe..=0x00ffff => GeneralCategory::Cn,
-            0x01fffe..=0x01ffff => GeneralCategory::Cn,
-            0x02fffe..=0x02ffff => GeneralCategory::Cn,
-            0x03fffe..=0x03ffff => GeneralCategory::Cn,
-            0x04fffe..=0x04ffff => GeneralCategory::Cn,
-            0x05fffe..=0x05ffff => GeneralCategory::Cn,
-            0x06fffe..=0x06ffff => GeneralCategory::Cn,
-            0x07fffe..=0x07ffff => GeneralCategory::Cn,
-            0x08fffe..=0x08ffff => GeneralCategory::Cn,
-            0x09fffe..=0x09ffff => GeneralCategory::Cn,
-            0x0afffe..=0x0affff => GeneralCategory::Cn,
-            0x0bfffe..=0x0bffff => GeneralCategory::Cn,
-            0x0cfffe..=0x0cffff => GeneralCategory::Cn,
-            0x0dfffe..=0x0dffff => GeneralCategory::Cn,
-            0x0efffe..=0x0effff => GeneralCategory::Cn,
-            0x0f0000..=0x0ffffd => GeneralCategory::Co,
-            0x0ffffe..=0x0fffff => GeneralCategory::Cn,
-            0x100000..=0x10fffd => GeneralCategory::Co,
-            0x10fffe..=0x10ffff => GeneralCategory::Cn,
+            0x00_0000..=0x00_001f => GeneralCategory::Cc,
+            0x00_007f..=0x00_009f => GeneralCategory::Cc,
+            0x00_d800..=0x00_dfff => GeneralCategory::Cs,
+            0x00_e000..=0x00_f8ff => GeneralCategory::Co,
+            0x00_fdd0..=0x00_fdef => GeneralCategory::Cn,
+            0x00_fffe..=0x00_ffff => GeneralCategory::Cn,
+            0x01_fffe..=0x01_ffff => GeneralCategory::Cn,
+            0x02_fffe..=0x02_ffff => GeneralCategory::Cn,
+            0x03_fffe..=0x03_ffff => GeneralCategory::Cn,
+            0x04_fffe..=0x04_ffff => GeneralCategory::Cn,
+            0x05_fffe..=0x05_ffff => GeneralCategory::Cn,
+            0x06_fffe..=0x06_ffff => GeneralCategory::Cn,
+            0x07_fffe..=0x07_ffff => GeneralCategory::Cn,
+            0x08_fffe..=0x08_ffff => GeneralCategory::Cn,
+            0x09_fffe..=0x09_ffff => GeneralCategory::Cn,
+            0x0a_fffe..=0x0a_ffff => GeneralCategory::Cn,
+            0x0b_fffe..=0x0b_ffff => GeneralCategory::Cn,
+            0x0c_fffe..=0x0c_ffff => GeneralCategory::Cn,
+            0x0d_fffe..=0x0d_ffff => GeneralCategory::Cn,
+            0x0e_fffe..=0x0e_ffff => GeneralCategory::Cn,
+            0x0f_0000..=0x0f_fffd => GeneralCategory::Co,
+            0x0f_fffe..=0x0f_ffff => GeneralCategory::Cn,
+            0x10_0000..=0x10_fffd => GeneralCategory::Co,
+            0x10_fffe..=0x10_ffff => GeneralCategory::Cn,
             _ => return None,
         })
     }
@@ -61,7 +61,7 @@ impl TryFrom<u32> for UnicodeCodepoint {
     type Error = ();
 
     fn try_from(i: u32) -> Result<UnicodeCodepoint, Self::Error> {
-        if i > 0x10FFFF {
+        if i > 0x10_FFFF {
             Err(())
         } else {
             Ok(UnicodeCodepoint(i))

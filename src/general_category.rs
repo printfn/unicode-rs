@@ -70,7 +70,7 @@ pub enum GeneralCategory {
 impl GeneralCategory {
     /// This method returns the short name (e.g. "Lu", "Ll") for the given General_Category.
     /// The values are stable; they will not change in future Unicode versions.
-    pub fn short_name(&self) -> &'static str {
+    pub fn short_name(self) -> &'static str {
         match self {
             GeneralCategory::Lu => "Lu",
             GeneralCategory::Ll => "Ll",
@@ -107,7 +107,7 @@ impl GeneralCategory {
 
     /// This method returns the long name (e.g. "Letter, uppercase") for the given General_Category.
     /// The values are stable; they will not change in future Unicode versions.
-    pub fn long_name(&self) -> &'static str {
+    pub fn long_name(self) -> &'static str {
         match self {
             GeneralCategory::Lu => "Letter, uppercase",
             GeneralCategory::Ll => "Letter, lowercase",
@@ -142,7 +142,7 @@ impl GeneralCategory {
         }
     }
 
-    pub fn codepoint_type(&self, codepoint: u32) -> CodepointType {
+    pub fn codepoint_type(self, codepoint: u32) -> CodepointType {
         match self {
             GeneralCategory::Cc => CodepointType::Control,
             GeneralCategory::Co => CodepointType::PrivateUse,
@@ -151,24 +151,24 @@ impl GeneralCategory {
                 CodepointType::Format
             }
             GeneralCategory::Cn => match codepoint {
-                0x00fdd0..=0x00fdef => CodepointType::Noncharacter,
-                0x00fffe..=0x00ffff => CodepointType::Noncharacter,
-                0x01fffe..=0x01ffff => CodepointType::Noncharacter,
-                0x02fffe..=0x02ffff => CodepointType::Noncharacter,
-                0x03fffe..=0x03ffff => CodepointType::Noncharacter,
-                0x04fffe..=0x04ffff => CodepointType::Noncharacter,
-                0x05fffe..=0x05ffff => CodepointType::Noncharacter,
-                0x06fffe..=0x06ffff => CodepointType::Noncharacter,
-                0x07fffe..=0x07ffff => CodepointType::Noncharacter,
-                0x08fffe..=0x08ffff => CodepointType::Noncharacter,
-                0x09fffe..=0x09ffff => CodepointType::Noncharacter,
-                0x0afffe..=0x0affff => CodepointType::Noncharacter,
-                0x0bfffe..=0x0bffff => CodepointType::Noncharacter,
-                0x0cfffe..=0x0cffff => CodepointType::Noncharacter,
-                0x0dfffe..=0x0dffff => CodepointType::Noncharacter,
-                0x0efffe..=0x0effff => CodepointType::Noncharacter,
-                0x0ffffe..=0x0fffff => CodepointType::Noncharacter,
-                0x10fffe..=0x10ffff => CodepointType::Noncharacter,
+                0x00_fdd0..=0x00_fdef => CodepointType::Noncharacter,
+                0x00_fffe..=0x00_ffff => CodepointType::Noncharacter,
+                0x01_fffe..=0x01_ffff => CodepointType::Noncharacter,
+                0x02_fffe..=0x02_ffff => CodepointType::Noncharacter,
+                0x03_fffe..=0x03_ffff => CodepointType::Noncharacter,
+                0x04_fffe..=0x04_ffff => CodepointType::Noncharacter,
+                0x05_fffe..=0x05_ffff => CodepointType::Noncharacter,
+                0x06_fffe..=0x06_ffff => CodepointType::Noncharacter,
+                0x07_fffe..=0x07_ffff => CodepointType::Noncharacter,
+                0x08_fffe..=0x08_ffff => CodepointType::Noncharacter,
+                0x09_fffe..=0x09_ffff => CodepointType::Noncharacter,
+                0x0a_fffe..=0x0a_ffff => CodepointType::Noncharacter,
+                0x0b_fffe..=0x0b_ffff => CodepointType::Noncharacter,
+                0x0c_fffe..=0x0c_ffff => CodepointType::Noncharacter,
+                0x0d_fffe..=0x0d_ffff => CodepointType::Noncharacter,
+                0x0e_fffe..=0x0e_ffff => CodepointType::Noncharacter,
+                0x0f_fffe..=0x0f_ffff => CodepointType::Noncharacter,
+                0x10_fffe..=0x10_ffff => CodepointType::Noncharacter,
                 _ => CodepointType::Reserved,
             },
             _ => CodepointType::Graphic,

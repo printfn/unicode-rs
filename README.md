@@ -1,7 +1,7 @@
 # unicode-rs
 
-[![crates.io](https://img.shields.io/crates/v/unicode.svg)](https://crates.io/crates/unicode)
-[![docs.rs](https://docs.rs/unicode/badge.svg)](https://docs.rs/unicode)
+[![crates.io](https://img.shields.io/crates/v/unicode-rs.svg)](https://crates.io/crates/unicode-rs)
+[![docs.rs](https://docs.rs/unicode-rs/badge.svg)](https://docs.rs/unicode-rs)
 
 **unicode-rs** is a Rust library for working with Unicode.
 
